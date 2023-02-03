@@ -1,0 +1,44 @@
+<app-header></app-header>
+<div class="card-top container-fluid">
+    <div class="container" style="display: flex;">
+        <div class="item">
+            <a>
+                <img src="../../assets/images/All-products.png" alt="">
+                <h6>All Products</h6>
+            </a>
+        </div>
+        <div class="item">
+            <a>
+                <img src="../../assets/images/electronics.png" alt="">
+                <h6>Electronics</h6>
+            </a>
+        </div>
+        <div class="item">
+            <a>
+                <img src="../../assets/images/Fashion.png" alt="">
+                <h6>Fashion</h6>
+            </a>
+        </div>
+        <div class="item">
+            <a>
+                <img src="../../assets/images/jewellery.png" alt="">
+                <h6>Jewellery</h6>
+            </a>
+        </div>
+    </div>
+</div>
+<hr style="color: black; margin: 0px; padding: 0px;">
+<div class="container">
+    <div class="row">
+        <ng-container *ngFor="let product of products | filter:searchKey: 'title' ">
+            <div class="card col-md-3">
+                <img class="product-img" src="{{product.ProductImage}}" alt="">
+                <h5 style="white-space:nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100ch;">{{product.ProductName}}</h5>
+                <p style="white-space:nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100ch;">{{product.ProductDescription}}</p>
+                <p><strong>$ {{product.ProductPrice}}</strong></p>
+                <button class="btn btn-primary" (click)="addedToCart(product)">Add to Cart</button>
+            </div>
+        </ng-container>
+    </div>
+</div>
+

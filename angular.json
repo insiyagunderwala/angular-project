@@ -23,6 +23,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -90,12 +91,26 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "Myntra:build:production",
+            "firebaseProject": "myntra-c3e27",
+            "firebaseHostingSite": "myntra-c3e27"
+          }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "3dcc4f91-fbaa-46f6-aea1-85e0c8d49e9e"
   }
 }

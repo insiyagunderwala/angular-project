@@ -1,0 +1,16 @@
+<header>
+    <div class="navbar" style="background-color: rgb(248, 211, 218);">
+        <div class="navbar-brand" style="align-items: center; display: flex;">
+            <i class="fa-brands fa-shopify" style="font-size: 40px; padding: 5px;"></i>  
+            <strong style="font-family: cursive;">Myntra</strong>
+            <div class="form-group">
+                <input class="form-control" type="text" [(ngModel)]="searchTerm" (keyup)="search($event)" placeholder="search for products" style="width: 500px; margin-left: 50px;">
+            </div>
+            <span class="fas fa-search search-icon" style="position: absolute; z-index: 10; right: 51%;"></span>
+        </div>
+        <button routerLink="/cart" class="btn btn-primary" style="background-color: black; border: 0px; margin-right: 40px;">
+            <i class="fa-solid fa-cart-shopping" style="font-size: 20px;"></i>
+            <div class="badge bg-danger" style="font-size: 8px;">{{totalItem}}</div>
+        </button>
+    </div>
+</header>

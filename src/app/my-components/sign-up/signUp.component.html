@@ -1,0 +1,68 @@
+<div class="container-fluid">
+    <h1 style="font-weight: 400; text-align: center;">Sign Up to Start Shopping!</h1>
+    
+    <!-- <ng-container *ngIf="authService.currentUser$ | async as user">
+        <button mat-button style="display:inline-block; margin-left: 130px;" (click)="logout()">
+            <mat-icon>logout</mat-icon>
+            Logout
+        </button>
+    </ng-container> -->
+
+    <!-- <ng-template>
+        <button mat-button style="display:inline-block; margin-left: 130px;" routerLink="login">
+            <mat-icon>login</mat-icon>
+            Login
+        </button>
+    </ng-template> -->
+    
+    <div class="form-container mat-elevation-z5">
+    <h1>Sign Up</h1>
+    <form [formGroup]="signUpForm" (ngSubmit)="submit()">
+
+        <mat-form-field>
+            <input matInput placeholder="Name" formControlName="name">
+            <mat-error *ngIf="name?.errors?.['required']">
+                Name is required 
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Email Address" formControlName="email">
+            <mat-error *ngIf="email?.errors?.['required']">
+                Email is required 
+            </mat-error>
+            <mat-error *ngIf="email?.errors?.['email']">
+                Email format is invalid 
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Password" formControlName="password" type="password">
+            <mat-error *ngIf="password?.errors?.['required']">
+                Password is required 
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Confirm Password" formControlName="confirmPassword" type="password">
+            <mat-error *ngIf="confirmPassword?.errors?.['required']">
+                Confirm Password is required 
+            </mat-error>
+        </mat-form-field>
+        <mat-error *ngIf="signUpForm.errors?.['passwordsDontMatch']">
+            Passwords do not match
+        </mat-error>
+
+        <div class="center">
+            <button mat-raised-button color="primary" type="submit">
+                Register
+            </button>
+        </div>
+        
+        <br>
+        <br>
+    </form>
+</div>
+</div>
+
+

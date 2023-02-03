@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "myntra-c3e27": {
+      "hosting": {
+        "Myntra": [
+          "myntra-c3e27"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "myntra-c3e27"
+  }
+}

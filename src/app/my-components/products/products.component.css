@@ -1,0 +1,33 @@
+.card-top{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color:rgb(248, 211, 218);
+    /*border: 1px solid black;*/
+}
+.item img{
+    width: 60px;
+    height: 60px;
+}
+.item{
+    margin: 0 15px;
+    text-align: center;
+}
+.item a:hover{
+    color: blue;
+}
+.card{
+    padding: 20px;
+    margin: 20px;
+}
+.product-img{
+    width: 200px;
+    height: 200px;
+    margin-bottom: 15px;
+    transition: 0.3s ease-in-out;
+    align-self: center;
+}
+.product-img:hover{
+    transition: 0.3s ease-in-out;
+    transform: scale(1.1);
+}
