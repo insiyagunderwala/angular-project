@@ -10,8 +10,12 @@ export class CartService {
   public cartList:any[] = [];
   public productList:any = new BehaviorSubject<any>([]);
   public search = new BehaviorSubject<string>("");
+  
+  
 
   constructor() { }
+
+  
 
   getProducts(){
     return this.productList.asObservable();
@@ -42,6 +46,7 @@ export class CartService {
     this.cartList.push(product);
     this.productList.next(this.cartList);
     this.getTotal();
+
     //console.log(this.cartList);
   }
 

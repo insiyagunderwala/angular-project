@@ -1,6 +1,8 @@
 import { Component, OnInit} from '@angular/core';
 import { ApiService } from 'src/app/service/api.service';
 import { CartService } from 'src/app/service/cart.service';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Auth, authState} from '@angular/fire/auth';
 
 @Component({
   selector: 'app-products',
@@ -11,12 +13,13 @@ export class ProductsComponent implements OnInit{
 
   products: any; 
   searchKey: string = '';
+  // UserID: string = this.getUid();
   /*ProductName : string=""; 
   ProductPrice : number=0;
   ProductImage : string="";
   ProductDescription : string="";*/
   
-  constructor(private productService: ApiService, private cartService: CartService){}
+  constructor(private productService: ApiService, private cartService: CartService, public afAuth: AngularFireAuth, private auth: Auth){}
 
   ngOnInit(){
     
@@ -24,6 +27,7 @@ export class ProductsComponent implements OnInit{
         //console.log("insiya",data)
         this.products = data.map((e:any) => { 
             return{ 
+                
                 ProductId:e.id, 
                 ProductName:e.title,
                 ProductPrice:e.price, 
@@ -33,11 +37,10 @@ export class ProductsComponent implements OnInit{
               };
           }) 
           this.products.forEach((e:any) => {
-            Object.assign(e, {quantity:1, total:e.ProductPrice});
-            //console.log("here", e.total);
+            Object.assign(e, { UserID: this.auth.currentUser?.uid , total:e.ProductPrice});
+            // console.log("here", e.UserID);
             
           });
-          //console.log(this.products);
         });
 
         this.cartService.search.subscribe((val:any) => {
@@ -49,4 +52,5 @@ addedToCart(product: any){
   this.cartService.addToCart(product);
   //console.log(product);
 }
+
 }

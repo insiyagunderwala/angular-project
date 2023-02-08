@@ -17,7 +17,7 @@ export class CartComponent implements OnInit {
       this.products = e;
       this.totalBill = this.cartService.getTotal();
       //console.log("bill", this.totalBill);
-    })
+    });
   }
 
   deleteItem(index:any){
@@ -29,4 +29,5 @@ export class CartComponent implements OnInit {
   emptyCart(){
     this.cartService.emptyCart();
   }
+
 }

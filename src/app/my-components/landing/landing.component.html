@@ -1,13 +1,35 @@
-<div class="container center">
+<div class="container">
     <div class="card"> 
-        <div >
-            <img  src="../../assets/images/checkout.png" alt="">
-            <h4 class="text"><strong> Thank you for shopping with us :)</strong><br>Please visit again soon!</h4>
-    
-            <!-- <h5 style="font-weight: 400; font-size: large;">Let's fill it now!!!!</h5>
-            <button class="btn btn-primary" routerLink="/products">Shop Now</button> -->
+        <h4 class="card-title" style="text-align: center; font-size: large;"><strong>My Orders</strong></h4>
+        <div class="card-table">
+            <div class="cart-product">
+                <table class="table table-responsive">
+                    <thead>
+                        <tr>
+                            <th>Sr.no</th>
+                            <th>Product Name</th>
+                            <th>Product Image</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of myOrders; let i = index">
+                            <td>{{i+1}}</td>
+                            <td>{{item.ProductName}}</td>
+                            <td><img style="width: 70px; height: 70px;" src="{{item.ProductImage}}" alt=""></td>
+                            <td>{{item.ProductDescription}}</td>
+                        </tr>           
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <!-- <h4 class="card-title" style="text-align: center; font-size: large;">My Cart</h4> -->
-    </div> 
-    
+        <br>
+        <h4 class="text" style="text-align:center;"><strong>Thank you for shopping with us :)</strong><br>Please visit again soon!</h4>
+    </div>        
 </div>
+    
+
+
+
+
+
